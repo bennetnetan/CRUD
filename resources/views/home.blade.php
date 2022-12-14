@@ -7,6 +7,12 @@
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
+                <div class="row">
+                    <div class="col-sm-4">
+                        <a href="{{ route('images.view') }}" class="btn btn-primary">Image Upload Center</a>
+                    </div>
+                </div>
+
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
