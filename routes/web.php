@@ -36,3 +36,5 @@ Route::get('/employees/edit/{id}', [App\Http\Controllers\EmployeesController::cl
 Route::get('/employees/show', [App\Http\Controllers\EmployeesController::class, 'show'])->name('show');
 
 Route::put('/employees/update', [App\Http\Controllers\EmployeesController::class, 'update'])->name('update');
+
+Route::put('/employees/delete/{$id}', [App\Http\Controllers\EmployeesController::class, 'destroy'])->name('delete');

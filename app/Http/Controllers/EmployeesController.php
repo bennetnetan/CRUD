@@ -48,7 +48,7 @@ class EmployeesController extends Controller
         $employee->lname = $request->lastname;
         $employee->idnum = $request->idNumber;
         $employee->email = $request->email;
-        $employee->office = $request->office;
+        $employee->office = $request->ofisi;
 
         // dd($employee);
         $employee->save();
@@ -119,6 +119,8 @@ class EmployeesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Employee::find($id)->delete();
+
+        return response()->json(['success'=>'User deleted successfully']);
     }
 }

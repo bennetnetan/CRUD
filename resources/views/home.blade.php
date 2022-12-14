@@ -44,7 +44,7 @@
                                     <td>{{ $emps->office }}</td>
                                     <td>
                                         <a href="{{ route('edit', $emps->id) }}" class="btn btn-info">Edit</a>
-                                        <a href="{{ route('edit', $emps->id) }}" class="btn btn-danger">Delete</a>
+                                        <a href="javascript:void(0)" id="delete-emp" data-url="{{ route('delete', $emps->id) }}" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                             @empty
@@ -53,10 +53,43 @@
 
                         </tbody>
                     </table>
-                    {{ $emp->render(); }}
+                    {{-- Default pagination --}}
+                    {{-- {{ $emp->render(); }} --}}
+                    {{-- Pagination with bootstrap --}}
+                    {!! $emp->withQueryString()->links('pagination::bootstrap-5') !!}
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document.ready(function(){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        // When user clicks the on show button
+        $('body').on('click', '#delete-emp', function(){
+
+            var empURL = $(this).data('url');
+            var trObj = $(this);
+
+            if (confirm('Are you sure you want to remove this user?') == true) {
+                $.ajax({
+                    url: empURL,
+                    type: 'DELETE',
+                    dataType: 'json',
+                    success: function(data) {
+                        alert(data.success);
+                        trObj.parents("tr").remove();
+                    }
+                });
+            }
+        });
+
+    }));
+</script>
 @endsection
