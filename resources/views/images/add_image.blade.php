@@ -6,7 +6,7 @@
           enctype="multipart/form-data">
       @csrf
       <div class="image">
-        <label><h4>Add image</h4></label>
+        <label><h4> <i class="fa fa-plus-circle" aria-hidden="true"></i> Add image</h4></label>
         <input type="file" class="form-control" required name="image">
       </div>
 
