@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Postimage extends Model
 {
     use HasFactory;
+
+    public function employees()
+    {
+        $this->belongsTo(Employees::class);
+    }
 }

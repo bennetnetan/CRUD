@@ -7,7 +7,7 @@
             <div class="card card-info">
                 <div class="card-header"><h4>New Employee</h4></div>
                 <div class="card-body">
-                    <form action="{{ route('store')}}" method="post">
+                    <form action="{{ route('store')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="firstname">First name</label>
@@ -33,6 +33,7 @@
                             <label for="office">Office</label>
                             <input type="text" name="ofisi" id="" class="form-control" placeholder="Office" aria-describedby="helpId">
                         </div>
+
                         <br>
                         <div class="form-group">
                             <button type="submit" class="btn btn-info">Submit</button>

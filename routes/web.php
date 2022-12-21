@@ -24,6 +24,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::group(['middleware' => ['auth']], function(){
+
 // Display the home page view
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -57,3 +59,5 @@ Route::post('/images/store_image',[ImageUploadController::class,'storeImage'])
 
 //For showing an image
 Route::get('/images/view_image',[ImageUploadController::class,'viewImage'])->name('images.view');
+
+});

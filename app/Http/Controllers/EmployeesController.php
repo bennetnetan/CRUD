@@ -17,6 +17,7 @@ class EmployeesController extends Controller
     public function index(Employee $employee)
     {
         $arr['emp'] = $employee::paginate(5);
+
         // dd($arr['emp']);
         // return view('home')->with($arr);
 

@@ -35,6 +35,7 @@
 
                     <table class="table table-stripped table-dark table-hover">
                         <thead class="table-secondary">
+                            <th>Image</th>
                             <th>Employee name</th>
                             <th>ID number</th>
                             <th>Email</th>
@@ -44,6 +45,10 @@
                         <tbody>
                             @forelse ($emp as $emps)
                                 <tr>
+                                    <td>
+                                        <img src="{{ url('public/Image/'.$emps->image) }}"
+style="height: 100px; width: 150px;">
+                                    </td>
                                     <td>{{ $emps->fname .' '. $emps->lname}}</td>
                                     <td>{{ $emps->idnum }}</td>
                                     <td>{{ $emps->email }}</td>

@@ -2,7 +2,8 @@
 
 @section('content')
 <div class="container">
-  <a href="{{ route('images.add') }}" class="btn btn-info">Add Images</a>
+  <a href="{{ route('images.add') }}" class="btn btn-primary"> Add Images</a>
+  <a href="{{ route('home') }}" class="btn btn-warning"> Home</a>
   <h3>View all images</h3><hr>
   <table class="table">
     <thead>

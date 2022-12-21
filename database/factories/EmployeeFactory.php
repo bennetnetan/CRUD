@@ -22,6 +22,7 @@ class EmployeeFactory extends Factory
             'idnum' => fake()->numberBetween(1, 9999999),
             'email' => fake()->unique()->safeEmail(),
             'office' => fake()->streetName(),
+            'imageId' => fake()->numberBetween(1, 9),
         ];
     }
 }
