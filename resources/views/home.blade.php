@@ -46,10 +46,10 @@
                             @forelse ($emp as $emps)
                                 <tr>
                                     <td>
-                                        <img src="{{ url('public/Image/'.$emps->image) }}"
+                                        <img src="{{ url('public/Image/'.$emps->empId) }}"
 style="height: 100px; width: 150px;">
                                         <br>
-                                        <a href="{{ route('images.add', $emps->id) }}" class="btn btn-info">
+                                        <a href=./images/add_image/?id={{ ($emps->id) }} class="btn btn-info">
                                             <small> <i class="fa fa-image    "></i> Change</small>
                                         </a>
                                     </td>

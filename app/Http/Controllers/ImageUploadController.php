@@ -4,14 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\Postimage;
 use Illuminate\Http\Request;
+use Illuminate\Routing\UrlGenerator;
+use Illuminate\Support\Facades\DB;
 
 class ImageUploadController extends Controller
 {
     // Add image
-    public function addImage($id){
-        // $arr['img'] = $id;
-        // return view('images.add_image')->with($arr);
-        dd();
+    public function addImage(){
+        !$urll = url()->full();
+        $url_components = parse_url($urll);
+        parse_str($url_components['query'], $params);
+        $arr['id'] = $params['id'];
+        return view('images.add_image')->with($arr);
+        // dd($arr);
     }
     // Store Image
     public function storeImage(Request $request){
@@ -22,9 +27,13 @@ class ImageUploadController extends Controller
             $filename= date('YmdHi').$file->getClientOriginalName();
             $file-> move(public_path('public/Image'), $filename);
             $data['image']= $filename;
+            // ID
+            $empId = $request->id;
+            $data['empId'] = $empId;
         }
+        // dd($data);
         $data->save();
-        return redirect()->route('images.view');
+        return redirect()->route('home');
     }
     // View Image
     public function viewImage(){

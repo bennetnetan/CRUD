@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Employee;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class EmployeesController extends Controller
@@ -16,15 +17,17 @@ class EmployeesController extends Controller
      */
     public function index(Employee $employee)
     {
-        $arr['emp'] = $employee::paginate(5);
+        $h = DB::statement('select * from employees inner join postimages on employees.id = postimages.empId');
+        $arr['emp'] = DB::statement('select * from employees inner join postimages on employees.id = postimages.empId');
+        // $arr['emp'] = $h->paginate(5);
 
-        // dd($arr['emp']);
+        dd($arr['emp']);
         // return view('home')->with($arr);
 
         // $emp = Employee::paginate(5);
 
         // return view('home', ['emp' => $emp]);
-        return view('home')->with($arr);
+        // return view('home')->with($arr);
     }
 
     /**
@@ -79,7 +82,6 @@ class EmployeesController extends Controller
      */
     public function edit($id)
     {
-
         $emp = Employee::findOrFail($id);
         $arr['emp'] = $emp;
         $arr['id'] = $id;
