@@ -8,9 +8,10 @@ use Illuminate\Http\Request;
 class ImageUploadController extends Controller
 {
     // Add image
-    public function addImage(){
-        return view('images.add_image');
-        // dd("Hello");
+    public function addImage($id){
+        // $arr['img'] = $id;
+        // return view('images.add_image')->with($arr);
+        dd();
     }
     // Store Image
     public function storeImage(Request $request){

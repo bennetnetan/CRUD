@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('idnum');
             $table->mediumText('email');
             $table->mediumText('office');
-            $table->integer('imageId');
+            $table->integer('imageId')->nullable();
             $table->timestamps();
         });
     }

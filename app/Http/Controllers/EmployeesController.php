@@ -51,6 +51,7 @@ class EmployeesController extends Controller
         $employee->email = $request->email;
         $employee->office = $request->ofisi;
 
+
         // dd($employee);
         $employee->save();
         return redirect(route('home'));

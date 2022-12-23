@@ -9,7 +9,7 @@
 
                 <div class="row">
                     <div class="col-sm-4">
-                        <a href="{{ route('images.view') }}" class="btn btn-primary">Image Upload Center</a>
+                        <a href="{{ route('images.view') }}" class="btn btn-primary"> <i class="fa fa-upload" aria-hidden="true"></i> Image Upload Center</a>
                     </div>
                 </div>
 
@@ -30,7 +30,7 @@
                     <br>
                     <p>
                         <h4>Add Employees</h4>
-                        <a href="{{ route('create') }}" class="btn btn-dark">New Employee</a>
+                        <a href="{{ route('create') }}" class="btn btn-dark"> <i class="fa fa-user-plus" aria-hidden="true"></i> New Employee</a>
                     </p>
 
                     <table class="table table-stripped table-dark table-hover">
@@ -48,14 +48,18 @@
                                     <td>
                                         <img src="{{ url('public/Image/'.$emps->image) }}"
 style="height: 100px; width: 150px;">
+                                        <br>
+                                        <a href="{{ route('images.add', $emps->id) }}" class="btn btn-info">
+                                            <small> <i class="fa fa-image    "></i> Change</small>
+                                        </a>
                                     </td>
                                     <td>{{ $emps->fname .' '. $emps->lname}}</td>
                                     <td>{{ $emps->idnum }}</td>
                                     <td>{{ $emps->email }}</td>
                                     <td>{{ $emps->office }}</td>
                                     <td>
-                                        <a href="{{ route('edit', $emps->id) }}" class="btn btn-info">Edit</a>
-                                        <a href="javascript:void(0)" id="delete-emp" data-url="{{ route('delete', $emps->id) }}" class="btn btn-danger">Delete</a>
+                                        <a href="{{ route('edit', $emps->id) }}" class="btn btn-info"> <i class="fa fa-user-edit    "></i> Edit</a>
+                                        <a href="javascript:void(0)" id="delete-emp" data-url="{{ route('delete', $emps->id) }}" class="btn btn-danger"> <i class="fa fa-user-alt-slash    "></i> Delete</a>
                                     </td>
                                 </tr>
                             @empty
